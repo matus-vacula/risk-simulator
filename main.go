@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"slices"
 	"sort"
 )
 
@@ -19,6 +20,9 @@ func Roll() int {
 func (gs *GameState) Fight(red []int, blue []int) {
 	sort.Ints(red)
 	sort.Ints(blue)
+
+	slices.Reverse(red)
+	slices.Reverse(blue)
 
 	for i := 0; i < len(blue); i++ {
 		if red[i] > blue[i] {
